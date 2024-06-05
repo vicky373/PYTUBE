@@ -1,5 +1,5 @@
 import tkinter
-from tkinter import filedialog 
+from customtkinter import filedialog 
 import customtkinter
 from pytube import YouTube
 
@@ -55,7 +55,10 @@ def switch_event():
         customtkinter.set_default_color_theme("green")
         switch_text_var.set("Dark Mode")
         
+
         
+        
+       
 def browse_button():
     filename = filedialog.askdirectory()
     folder_path.set(filename)
@@ -85,6 +88,12 @@ Link.pack()
 #finished downloading
 finishlabel=customtkinter.CTkLabel(app,text="")
 finishlabel.pack()
+
+# Resolution Options
+option_list=["720p","480p","360p"]
+combobox_var = customtkinter.StringVar()
+combobox = customtkinter.CTkComboBox(app, values=option_list,variable=combobox_var)
+combobox.pack(padx=80,pady=10)
 
 #progress percentage
 progper=customtkinter.CTkLabel(app,text="0%")
