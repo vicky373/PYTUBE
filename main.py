@@ -43,11 +43,25 @@ def on_progress(stream,chunk,bytes_remaining):
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("green")
 
+def switch_event():
+    if switch_var.get() == "on":
+        customtkinter.set_appearance_mode("Light")
+        customtkinter.set_default_color_theme("blue")
+    else:
+        customtkinter.set_appearance_mode("Dark")
+        customtkinter.set_default_color_theme("green")
+
 #Our application frame
 
 app = customtkinter.CTk()
 app.geometry("1080x720")
 app.title("Youtube Video Downlaoder")
+
+# appearance mode switching light/Dark
+switch_var = customtkinter.StringVar(value="off")
+switch = customtkinter.CTkSwitch(app, text="Mode", command=switch_event,
+                                 variable=switch_var, onvalue="on", offvalue="off")
+switch.pack(padx=10,pady=10)
 
 #Adding UI elemets
 
